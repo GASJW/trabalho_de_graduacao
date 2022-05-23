@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/Templates/Template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<ui:define name="conteudo">
+		<h:outputLabel>
+			<h:form>
+					<p:panel header="Cadastro - Paciente">
+						<p:dataTable emptyMessage="Nenhum Regitro Encontrado">
+						<f:facet name="footer">
+							<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"/>
+						</f:facet>
+						<p:column headerText="Nome"></p:column>
+						<p:column headerText="RG"></p:column>
+						<p:column headerText="CPF"></p:column>
+						<p:column headerText="Nome do Responsavel"></p:column>
+						<p:column headerText="Data de Nascimento"></p:column>
+						<p:column headerText="Telefone do Responsavel"></p:column>
+						<p:column headerText="Enfermeiro Responsavel"></p:column>
+						<p:column headerText="Status"></p:column>
+						</p:dataTable>
+					</p:panel>
+				</h:form>
+				
+				<p:dialog header="Enfermeiros - Cadastros" widgetVar="dialogo" 
+				draggable="false" resizable="false" modal="false" closable="false">
+					<h:form>
+						
+						<h:panelGrid columns="2">
+						
+							<p:outputLabel value="Nome:" /> 
+							<p:inputText size="30" maxlength="255"/>
+							
+							<p:outputLabel value="RG:" />
+							<p:inputText size="12" maxlength="12"/>
+							
+							<p:outputLabel value="CPF:" /> 
+							<p:inputText size="14" maxlength="14"/>
+							
+							<p:outputLabel value="Nome do Responsavel:" /> 
+							<p:inputText size="30" maxlength="255"/>
+							
+							<p:outputLabel value="Data de Nascimento:" /> 
+							<p:calendar size="8" />
+														
+							<p:outputLabel value="Endereço:" /> 
+							<p:inputText size="30" maxlength="255"/>
+							
+							<p:outputLabel value="Telefone do Responsavel:" /> 
+							<p:inputText size="20" maxlength="20"/>
+							
+							<p:outputLabel value="Nome do Enfermeiro:" /> 
+							<p:selectOneMenu size="30"/>
+							
+							<p:outputLabel value="Ativo:" /> 
+							<p:selectBooleanCheckbox />
+						
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2">
+						
+							<p:commandButton value="Salvar"/>
+							<p:commandButton value="Fechar" oncomplete="PF('dialogo'.hide();)"/>
+							
+						</h:panelGrid>
+					</h:form>
+				</p:dialog>
+		</h:outputLabel>
+	</ui:define>
+	
+</ui:composition>
